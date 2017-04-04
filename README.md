@@ -9,8 +9,11 @@ Read PDF file and then extract text by page, then first 3 words from every page.
 5. Choose your desired Category
 
 Category 1 ( Rectangle bellow header -> Check Rectangle2D properties in the class)
+
 Category 2 ( Rectangle near header -> Check Rectangle2D properties in the class)
+
 Category 3 ( Rectangle far from header -> Check Rectangle2D properties in the class)
+
 
 
 Techonologies used:
