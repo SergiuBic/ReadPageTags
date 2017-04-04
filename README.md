@@ -12,3 +12,6 @@ Category 1 ( Rectangle bellow header -> Check Rectangle2D properties in the clas
 Category 2 ( Rectangle near header -> Check Rectangle2D properties in the class)
 Category 3 ( Rectangle far from header -> Check Rectangle2D properties in the class)
 
+
+Techonologies used:
+Java (Files/Path/Stream/Writer), Swing (Frame,Drag'n'Drop feature), APACHE-POI (text extraction).
