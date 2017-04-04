@@ -7,6 +7,9 @@ Read PDF file and then extract text by page, then first 3 words from every page.
 3. Number them ascendant "1.pdf" "2.pdf" etc.
 4. Run the app
 5. Choose your desired Category
+6. Drag'n'Drop your FOLDER/Path to the splitted PDFs into the White Area
+7. When the START button appears, click it.
+8. Program complete and exit by System.
 
 Category 1 ( Rectangle bellow header -> Check Rectangle2D properties in the class)
 
