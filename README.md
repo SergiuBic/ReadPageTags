@@ -14,4 +14,4 @@ Category 3 ( Rectangle far from header -> Check Rectangle2D properties in the cl
 
 
 Techonologies used:
-Java (Files/Path/Stream/Writer), Swing (Frame,Drag'n'Drop feature), APACHE-POI (text extraction).
+Java (Files/Path/Stream/Writer), Swing (Frame,Drag'n'Drop feature), PDFBox Library (text extraction).
