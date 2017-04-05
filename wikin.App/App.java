@@ -49,6 +49,8 @@ public class App extends JFrame{
 	public static JPanel lowerPanel = new JPanel();
 	public static JButton StartButton = new JButton("Start the program!");
 	public static JButton Info = new JButton("info");
+	public static JButton RenameFiles = new JButton("SortFiles");
+	public static JTextPane screen = new JTextPane();
 	public static JTextArea dragndrop = new JTextArea(content,12,20);
 	public static Thread principal;
 	
@@ -57,13 +59,34 @@ public class App extends JFrame{
 		
         //Shut down the LOG4J messages.
 		java.util.logging.Logger.getLogger("org.apache.pdfbox").setLevel(java.util.logging.Level.OFF);
-		
+	
+	//UI
+          try {
+	        UIManager.setLookAndFeel(
+	            UIManager.getSystemLookAndFeelClassName());
+	    } 
+	    catch (UnsupportedLookAndFeelException e) {
+	       // handle exception
+	    }
+	    catch (ClassNotFoundException e) {
+	       // handle exception
+	    }
+	    catch (InstantiationException e) {
+	       // handle exception
+	    }
+	    catch (IllegalAccessException e) {
+	       // handle exception
+	    }
+		   
+		   
+	
 		
 	   //Calling the Window
        win64 = Frame.getFrame();
        win64.setTitle(Frame.getTitle());
        win64.setSize(Frame.getWIN_H(),Frame.getWIN_W());
-       
+         //Frame ICO
+       win64.setIconImage(ImageIO.read(new File("res/read.png")));
        win64.setVisible(true);
 	  
 	   win64.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,7 +100,8 @@ public class App extends JFrame{
 	   win64.setLayout(new BorderLayout());
 	   //StartButton.setLayout(null);
 	  
-	   StartButton.setBackground(Color.WHITE);
+	    StartButton.setBackground(Color.DARK_GRAY);
+	   StartButton.setForeground(Color.WHITE);
 	   StartButton.setSize(new Dimension(5,5));
 	   StartButton.setVisible(false);
 	   
@@ -325,17 +349,24 @@ public class App extends JFrame{
     };
     
     StartButton.addActionListener(StartButtonActionListener);
-    lowerPanel.add(StartButton);
-	StartButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-    lowerPanel.add(Info);
+    upperPanel.add(StartButton);
+    StartButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+	
+	lowerbuttons.add(RenameFiles,"East");
+	lowerbuttons.add(Box.createVerticalStrut(20));
+	lowerbuttons.add(Box.createHorizontalStrut(350));
+    lowerbuttons.add(Info,"West");
+    RenameFiles.setAlignmentX(Component.RIGHT_ALIGNMENT);
     Info.setAlignmentX(Component.LEFT_ALIGNMENT);
+    lowerbuttons.setAlignmentX(Component.LEFT_ALIGNMENT);
+    lowerPanel.add(lowerbuttons);
    
     
        
    	win64.getContentPane().add(upperPanel, "North");
    	win64.getContentPane().add(lowerPanel, "South");
    	win64.setLocationRelativeTo(null);
-    win64.pack();
+         win64.pack();
    	win64.setResizable(false);
    	win64.setVisible(true);
 	 
@@ -353,6 +384,24 @@ public class App extends JFrame{
         	 		"\n*****"+Frame.getTitle()+"*****\n"
         	 		+ "(c) 2017 closed-beta,\n"
         	 		+ "Info/Bugs/Injuries at developer sergiuadrian.bic@gmail.com");
+         }
+     });
+        RenameFiles.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+        	   RenameFiles r = null;
+			try {
+				r = new RenameFiles();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				 JOptionPane.showMessageDialog(null,"Problem with renaming files\nERROR: "+e1.getStackTrace(),"Warn",JOptionPane.WARNING_MESSAGE);
+			}
+              try{r.doRename();}
+              catch(Exception e3){
+            	  e3.printStackTrace();
+              }
+            	  
+              
          }
      });
    	 
